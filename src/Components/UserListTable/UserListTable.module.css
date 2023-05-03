@@ -1,0 +1,7 @@
+.table_cols {
+  padding-right: 120px;
+}
+.user_list_container {
+  overflow-y: auto;
+  height: 100%;
+}
