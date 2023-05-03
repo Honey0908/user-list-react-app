@@ -1,0 +1,11 @@
+.name_col {
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.profileImage {
+  border-radius: 100%;
+  border: 1px solid lightgrey;
+  margin-right: 15px;
+}

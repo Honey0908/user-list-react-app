@@ -1,0 +1,8 @@
+.main_container {
+  max-width: 65%;
+  height: 80vh;
+  background-color: white;
+  position: relative;
+  margin: 50px auto;
+  padding: 30px;
+}
