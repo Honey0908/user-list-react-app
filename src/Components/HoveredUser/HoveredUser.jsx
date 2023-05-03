@@ -23,8 +23,10 @@ const HoveredUser = () => {
                             <div style={{ position: 'relative' }}>
 
                                 <h3>{user.first_name} {user.last_name}</h3>
-                                <div style={{ height: "12px", width: "12px", backgroundColor: "green", borderRadius: "100%", position: "absolute", right: "-12%", top: "-10%" }}></div>
+                                <div className={styles.activeIcon}></div>
+
                             </div>
+
                             <p>{user.email}</p>
                             <h3>Your plan: Standard</h3>
                             <button className={styles.activeUserbtn}>Active User</button>
@@ -32,7 +34,7 @@ const HoveredUser = () => {
                         </div>
 
                         {/* Progress bar component */}
-                        <ProgressBar value={32} max={100} label="Plan Users" />
+                        <ProgressBar value={60} max={100} label="Plan Users" />
 
 
                         <div className={styles.reviewDiv}>

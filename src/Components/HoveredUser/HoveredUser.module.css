@@ -51,3 +51,13 @@
 .reviewDiv h2 {
   font-size: 1.8em;
 }
+
+.activeIcon {
+  height: 12px;
+  width: 12px;
+  background-color: "green";
+  border-radius: 100%;
+  position: absolute;
+  right: -12%;
+  top: "-10%";
+}
