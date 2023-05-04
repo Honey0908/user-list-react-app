@@ -1,81 +1,41 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 
-// dummy Data
-const initialState = {
-    users: [
-        {
-            id: 1,
-            first_name: "damon",
-            last_name: "salvatore",
-            email: "damondamon@gmail.com",
-            avatar: "https://reqres.in/img/faces/1-image.jpg"
-        },
-        {
-            id: 2,
-            first_name: "Honey",
-            last_name: "Patel",
-            email: "honeypatel@gmail.com",
-            avatar: "https://reqres.in/img/faces/2-image.jpg"
-        },
-        {
-            id: 3,
-            first_name: "Elena",
-            last_name: "Gilbert",
-            email: "elenaaapatel@gmail.com",
-            avatar: "https://reqres.in/img/faces/3-image.jpg"
-        },
-        {
-            id: 4,
-            first_name: "Bonny",
-            last_name: "Benette",
-            email: "bonny@xyz.com",
-            avatar: "https://reqres.in/img/faces/4-image.jpg"
-        },
-        {
-            id: 5,
-            first_name: "Helly",
-            last_name: "Patel",
-            email: "stefan@gmail.cpm",
-            avatar: "https://reqres.in/img/faces/5-image.jpg"
-        },
-
-        {
-            id: 6,
-            first_name: "Prince",
-            last_name: "Patel",
-            email: "stefanElena@gmail.cpm",
-            avatar: "https://reqres.in/img/faces/7-image.jpg"
-        },
-        {
-            id: 7,
-            first_name: "Ayush",
-            last_name: "Thakur",
-            email: "ayushThakur@gmail.cpm",
-            avatar: "https://reqres.in/img/faces/8-image.jpg"
-        },
-        {
-            id: 8,
-            first_name: "sweet",
-            last_name: "heart",
-            email: "stefanElena@gmail.cpm",
-            avatar: "https://reqres.in/img/faces/9-image.jpg"
-        },
-    ],
-    hoveredUser: null
-};
-
-
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async (page = 1) => {
+    const response = await fetch(`https://reqres.in/api/users?page=${page}`);
+    const data = await response.json();
+    return data.data;
+});
 
 const userSlice = createSlice({
-    name: "users",
-    initialState,
+    name: 'users',
+    initialState: {
+        users: [],
+        hoveredUser: null,
+        loading: false,
+        error: null,
+    },
     reducers: {
         sethoveredUser(state, action) {
             state.hoveredUser = action.payload;
-        }
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchUsers.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.loading = false;
+                state.error = null;
+                state.users = action.payload;
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            });
     },
 });
 
-export const userActions = userSlice.actions;
+export const { sethoveredUser } = userSlice.actions;
 export default userSlice.reducer;

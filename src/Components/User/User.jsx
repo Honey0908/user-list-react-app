@@ -2,7 +2,7 @@ import React, { Fragment, memo } from 'react'
 import styles from './User.module.css'
 import { Lock, Trash2 } from 'react-feather'
 import { useDispatch } from 'react-redux'
-import { userActions } from '../../store/UserSlice'
+import { sethoveredUser } from '../../store/UserSlice'
 
 const User = ({ user }) => {
 
@@ -10,10 +10,10 @@ const User = ({ user }) => {
     const dispatch = useDispatch();
 
     const handleMouseHover = (user) => {
-        dispatch(userActions.sethoveredUser(user))
+        dispatch(sethoveredUser(user))
     }
     const handleUserLeave = () => {
-        dispatch(userActions.sethoveredUser(null))
+        dispatch(sethoveredUser(null))
     };
 
 
