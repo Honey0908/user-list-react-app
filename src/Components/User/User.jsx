@@ -24,11 +24,13 @@ const User = ({ user }) => {
 
             {/* If User Hover over name or Image then Hovered Component will be shown */}
 
-            <td className={styles.name_col} onMouseEnter={() => handleMouseHover(user)} onMouseLeave={handleUserLeave}>
-                <img src={user.avatar} className={styles.profileImage} alt="" height="45px" width="45px" />
-                <div>
-                    <h4>{user.first_name} {user.last_name}</h4>
-                    <div>{user.email}</div>
+            <td onMouseEnter={() => handleMouseHover(user)} onMouseLeave={handleUserLeave} style={{ width: "350px" }}>
+                <div className={styles.name_col} >
+                    <img src={user.avatar} className={styles.profileImage} alt="" height="45px" width="45px" />
+                    <div>
+                        <h4>{user.first_name} {user.last_name}</h4>
+                        <div>{user.email}</div>
+                    </div>
                 </div>
             </td>
 

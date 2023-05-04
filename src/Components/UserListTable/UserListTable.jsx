@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import User from '../User/User'
 import styles from './UserListTable.module.css'
 import HoveredUser from '../HoveredUser/HoveredUser'
@@ -18,7 +18,6 @@ const UserListTable = () => {
 
 
     const dispatch = useDispatch()
-    const col_names = ["Name", "Status", "Access", ""];
 
 
     useEffect(() => {
@@ -32,24 +31,16 @@ const UserListTable = () => {
                 <thead>
                     <tr>
 
-                        {/* column names */}
-                        {
-                            col_names.map((colName, index) => {
-                                return (
-                                    <Fragment key={index}>
-
-                                        <th className={styles.table_cols}>{colName}</th>
-
-                                    </Fragment>
-                                )
-                            })
-
-                        }
+                        <th style={{ width: "350px" }}>Name</th>
+                        <th>Status</th>
+                        <th>Access</th>
+                        <th>dfgdf</th>
 
                     </tr>
                 </thead>
 
                 <tbody>
+
                     {loading && <tr><td><PulseLoader color='grey' /></td></tr>}
                     {error && <tr><td>Something Wrong !</td></tr>}
                     {users && users.map(user => (
