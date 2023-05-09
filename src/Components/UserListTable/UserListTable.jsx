@@ -31,8 +31,8 @@ const UserListTable = () => {
                 <thead>
                     <tr>
                         <th style={{ width: "350px" }}>Name</th>
-                        <th style={{ width: "150px" }}>Status</th>
-                        <th style={{ width: "150px" }}>Access</th>
+                        <th style={{ width: "170px" }}>Status</th>
+                        <th style={{ width: "170px" }}>Access</th>
                         <th></th>
 
                     </tr>
