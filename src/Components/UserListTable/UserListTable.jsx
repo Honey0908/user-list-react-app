@@ -30,11 +30,10 @@ const UserListTable = () => {
             <table >
                 <thead>
                     <tr>
-
                         <th style={{ width: "350px" }}>Name</th>
-                        <th>Status</th>
-                        <th>Access</th>
-                        <th>dfgdf</th>
+                        <th style={{ width: "150px" }}>Status</th>
+                        <th style={{ width: "150px" }}>Access</th>
+                        <th></th>
 
                     </tr>
                 </thead>
