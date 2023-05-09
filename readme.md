@@ -1,8 +1,8 @@
 # Use List React App
 
-This is a simple React application that displays a list of users and their details. When the user hovers over a user's name, additional details about the user are displayed.
+This is a simple React application that displays a list of users and their details. When the user hovers over a user's name, additional details about the user are displayed. And When the user clicks on a page number, the users from that page are shown.
 
-[deploy Link](https://elegant-alpaca-f8db03.netlify.app/)
+[deploy Link](https://clever-stardust-863a0b.netlify.app/)
 
 ## Technologies
 
@@ -20,6 +20,10 @@ To run the app, you need to have Node.js and npm installed on your machine. Then
 - Run `npm install` to install the project dependencies
 - Run `npm run dev` to start the development server
 
+## API
+
+The users data is fetched from the following API: https://reqres.in/api/users?page=<page-number>. The API returns a list of users for the requested page number.
+
 ## Folder Structure
 
 ```sh
@@ -28,6 +32,7 @@ To run the app, you need to have Node.js and npm installed on your machine. Then
 ├── package-lock.json
 ├── public
 │   └── favicon.png
+├── readme.md
 ├── src
 │   ├── App.css
 │   ├── App.jsx
@@ -36,6 +41,9 @@ To run the app, you need to have Node.js and npm installed on your machine. Then
 │   │   ├── HoveredUser
 │   │   │   ├── HoveredUser.jsx
 │   │   │   └── HoveredUser.module.css
+│   │   ├── Pagination.jsx
+│   │   │   ├── Pagination.jsx
+│   │   │   └── Pagination.module.css
 │   │   ├── ProgessBar
 │   │   │   ├── ProgressBar.jsx
 │   │   │   └── ProgressBar.module.css
