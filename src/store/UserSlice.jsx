@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-
+/* Fetch Data from API for a given number*/
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async (page = 1) => {
     const response = await fetch(`https://reqres.in/api/users?page=${page}`);
     const data = await response.json();
